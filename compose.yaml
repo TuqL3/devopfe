@@ -1,0 +1,10 @@
+services:
+  frontend:
+    build:
+      context: .
+    environment:
+      NODE_ENV: development
+      API_PROXY_TARGET: http://host.docker.internal:3000
+    ports:
+      - "5173:5173"
+    restart: unless-stopped
