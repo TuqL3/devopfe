@@ -2,6 +2,7 @@ services:
   frontend:
     build:
       context: .
+      target: development
     environment:
       NODE_ENV: development
       API_PROXY_TARGET: http://host.docker.internal:3000
