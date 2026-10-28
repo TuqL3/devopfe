@@ -36,7 +36,8 @@ API_PROXY_TARGET=http://127.0.0.1:3000
 Biến này chỉ được đọc bởi Vite dev/preview, không đưa vào bundle trình duyệt. Khởi động lại Vite sau khi sửa.
 Không đặt secrets vào `VITE_*`. Frontend không cần biến môi trường runtime với mô hình `/api` cùng origin.
 Khi triển khai, bạn phục vụ `dist` và định tuyến `/api` tới backend cùng origin; đổi backend qua định tuyến sẽ không cần build lại frontend.
-Repo không chứa cấu hình reverse proxy, Dockerfile hoặc hạ tầng triển khai.
+Dockerfile có target development/production và Nginx proxy `/api` tới backend.
+Xem [README.Docker.md](README.Docker.md) để chạy container, release và rollback.
 
 ## Chức năng
 
