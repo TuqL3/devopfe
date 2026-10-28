@@ -24,8 +24,9 @@ Image có healthcheck HTTP cho frontend. Nginx phục vụ static assets và chu
 và sẵn sàng trước khi frontend khởi động. Không dùng `API_PROXY_TARGET` cho
 production vì biến đó chỉ cấu hình Vite dev/preview.
 
-Frontend CI kiểm tra lint, type-check, tests và build. Chỉ push vào `develop`
-đã pass job `verify` mới publish:
+Frontend CI kiểm tra lint, type-check, tests, build và container production
+(UID khác root, cấu hình Nginx hợp lệ). Chỉ push vào `develop` đã pass job
+`verify` mới publish:
 
 - `ghcr.io/tuql3/devopfe:<full-commit-sha>`: phiên bản để release/rollback.
 - `ghcr.io/tuql3/devopfe:develop`: tag tiện dụng có thể thay đổi.
