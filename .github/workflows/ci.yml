@@ -43,6 +43,12 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Verify production container runs without root
+        run: |
+          docker build --target production -t frontend-ci .
+          docker run --rm --add-host backend:127.0.0.1 --entrypoint sh frontend-ci \
+            -c 'test "$(id -u)" -ne 0 && nginx -t'
+
   publish:
     name: Build and Publish Frontend Image
     needs: verify
